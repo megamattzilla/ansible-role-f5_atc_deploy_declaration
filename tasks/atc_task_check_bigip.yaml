@@ -15,8 +15,9 @@
   delay: "{{ atc_delay }}"
   changed_when: atc_AS3_status.json.results | map(attribute='message') | list | first != 'no change'
   failed_when:
-    - atc_AS3_status.json.results | map(attribute='message') | list | first != 'success'
-    - atc_AS3_status.json.results | map(attribute='message') | list | first != 'no change'
+    #Removed "|"" first from the failed condition so in the event AS3/DO response contains multiple JSON elements they will all be checked. 
+    - atc_AS3_status.json.results | map(attribute='message') | list != 'success'
+    - atc_AS3_status.json.results | map(attribute='message') | list != 'no change'
   delegate_to: localhost
   when:
     - atc_service == "AS3"

@@ -1,3 +1,7 @@
+# Fork Info 
+This role was forked from f5devcentral/ansible-role-f5_atc_deploy_declaration to fix two outstanding issues:
+- resolve issue#33 Ansible task succeded but partial result failed 
+- Omit erronious Big-IQ failure when Big-IQ is not in use for AnO Toolchain
 # Ansible Role: F5 automation tool chain (ATC) deploy declaration
 
 This role deploys declaratives to installed automation tool chain services (AS3, DO, TS) on your BIG-IP or (AS3, DO) on your BIG-IQ. You would use this role to post declarations to the following BIG-IP or BIG-IQ automation tool chain services: application services 3 extension, declaritive onboarding, or telemetry streaming (BIG-IP only). Information regarding these services along with example declaritives is available on [f5-cloud-docs](https://clouddocs.f5.com/).

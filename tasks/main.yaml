@@ -87,16 +87,16 @@
 
 - name: include declare.yaml
   include_tasks: declare.yaml
-
-- name: Check if BIG-IQ (ignore if failed)
-  uri:
-    url: "https://{{ provider.server }}:{{ provider.server_port }}/info/system"
-    timeout: "{{ atc_timeout }}"
-    validate_certs: "{{ provider.validate_certs }}"
-    headers:
-      X-F5-Auth-Token: "{{ f5_auth_token }}"
-  register: check_bigiq
-  ignore_errors: yes
+##Removing big-iq check because we are not currently using it for AnO toolchain. 
+##- name: Check if BIG-IQ (ignore if failed)
+##  uri:
+##    url: "https://{{ provider.server }}:{{ provider.server_port }}/info/system"
+##    timeout: "{{ atc_timeout }}"
+##    validate_certs: "{{ provider.validate_certs }}"
+##    headers:
+##      X-F5-Auth-Token: "{{ f5_auth_token }}"
+##  register: check_bigiq
+##  ignore_errors: yes
 
 # BIG-IP task check
 - name: include atc_task_check_bigip.yaml
